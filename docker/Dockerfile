@@ -10,7 +10,7 @@ WORKDIR $HOME
 
 # Install workshop deps
 RUN mamba install conda-forge::ambertools bioconda::blast conda-forge::openmm numpy=2.2 -y
-RUN pip install git+https://github.com/CompBioAsia/CBAtools.git
+RUN pip install git+https://github.com/CharlieLaughton/Alphafix.git
 
 RUN mkdir blastp
 WORKDIR /home/jovyan/blastp

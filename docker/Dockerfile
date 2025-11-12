@@ -6,6 +6,10 @@ LABEL maintainer="James Gebbie-Rayet <james.gebbie@stfc.ac.uk>"
 
 ARG AMBERTOOLS_DL=null
 
+# Install workshop deps
+RUN mamba install -c conda-forge bioconda::blast openmm numpy=2.2 matplotlib scipy -y
+RUN pip install git+https://github.com/CharlieLaughton/Alphafix.git
+
 USER root
 RUN mkdir /opt/amber22 && \
     chown 1000:100 -R /opt/amber22 
@@ -38,10 +42,6 @@ ENV AMBERHOME=/opt/amber22
 ENV PATH="$PATH:/opt/amber22/bin"
 ENV LD_LIBRARY_PATH="$AMBERHOME/lib"
 ENV PERL5LIB="$AMBERHOME/lib/perl"
-
-# Install workshop deps
-RUN mamba install bioconda::blast conda-forge::openmm conda-forge::numpy=2.2 -y
-RUN pip install git+https://github.com/CharlieLaughton/Alphafix.git
 
 RUN mkdir blastp
 WORKDIR /home/jovyan/blastp

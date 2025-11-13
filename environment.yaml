@@ -1,0 +1,15 @@
+name: ccpbiosim-protprep
+channels:
+    - conda-forge
+    - bioconda
+dependencies:
+    - ambertools
+    - pip
+    - python=3.10
+    - jupyterlab
+    - parmed
+    - blast
+    - openmm
+    - matplotlib
+    - numpy=2.1
+    - scipy
